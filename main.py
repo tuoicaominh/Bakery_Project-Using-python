@@ -21,45 +21,37 @@ def main():
 
     while True:
         print("\n===== HỆ THỐNG ĐẶT BÁNH =====")
-        print("1. Customer")
-        print("2. Manager")
-        print("0. Thoát")
+        print("1. Đăng ký")
+        print("2. Đăng nhập")
+        print("0. Quay lại")
 
-        c = input("Chọn: ")
+        x = input("Chọn: ")
 
-        if c == "1":
-            print("\n--- CUSTOMER ---")
-            print("1. Đăng ký")
-            print("2. Đăng nhập")
-            print("0. Quay lại")
+        if x == "1":
+            u = input("Username: ")
+            p = input("Password: ")
+            if acc.register(u, p):
+                print("Đăng ký thành công")
+            else:
+                print("User tồn tại")
 
-            x = input("Chọn: ")
-
-            if x == "1":
-                u = input("Username: ")
-                p = input("Password: ")
-                if acc.register(u, p):
-                    print("Đăng ký thành công")
-                else:
-                    print("User tồn tại")
-
-            elif x == "2":
-                u = input("Username: ")
-                p = input("Password: ")
-                if acc.login(u, p):
+        elif x == "2":
+            u = input("Username: ")
+            p = input("Password: ")
+            if u == "Minh":
+                if p == "admin":
+                    manager_menu(avl, queue)
+                elif acc.login(u, p):
                     customer_menu(u, avl, queue)
                 else:
-                    print("Sai thông tin")
-
-        elif c == "2":
-            pw = input("Manager password: ")
-            if pw == "admin":
-                manager_menu(avl, queue)
+                    print("Sai mật khẩu")
+            elif acc.login(u, p):
+                customer_menu(u, avl, queue)
             else:
-                print("Sai mật khẩu")
-
-        elif c == "0":
+                print("Sai thông tin")
+        elif x == "0":
             break
+
 
 if __name__ == "__main__":
     main()
