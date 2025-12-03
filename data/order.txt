@@ -1,2 +1,0 @@
-ORDC5D7BE67,Minh,C001,Bánh bông lan,2,EXTRA KEM,pending
-ORDBDAF5898,Minh,C006,Bánh tiramisu,10,,pending
